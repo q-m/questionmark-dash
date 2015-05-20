@@ -6,7 +6,6 @@ source      = 'Distelweg'
 destination = 'Tasmanstraat'
 
 def get_next_pontje(source, destination)
-  puts "** next pontje!"
   open "http://pontveer.nl/api/?l=#{source}&d=#{destination}&app_version=1.1.1&platform=webapp" do |f|
     result = JSON.parse(f.read)
     return Time.parse(result['departures']['1']['time'])

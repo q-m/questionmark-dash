@@ -1,3 +1,5 @@
+# source: https://gist.github.com/ilyakatz/6175747
+
 require 'mixpanel_client'
 require 'date'
  

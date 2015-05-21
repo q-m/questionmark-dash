@@ -1,3 +1,5 @@
+# source: https://gist.github.com/ilyakatz/6175747
+
 def mixpanel_client
   @mixpanel_client ||= Mixpanel::Client.new(MixPanelConfiguration.config)
 end

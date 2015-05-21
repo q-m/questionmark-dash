@@ -1,7 +1,7 @@
 require 'open-uri'
 require 'json'
 
-SCHEDULER.every '24h' do
+SCHEDULER.every '1m', :first_in => 0 do |job|
   open 'https://api-c.thequestionmark.org/api/v1.1/products?per_page=1' do |f|
     result = JSON.parse(f.read)
     send_event('qm-products-total', {current: result['total']})

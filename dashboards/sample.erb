@@ -5,16 +5,6 @@
       <div data-view="Image" data-image="/qm-logo.png"></div>
     </li>
 
-    <!--
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="welcome" data-view="Text" data-title="Hello" data-text="This is your shiny new dashboard." data-moreinfo="Protip: You can drag the widgets around!"></div>
-    </li>
-
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="2">
-      <div data-id="buzzwords" data-view="List" data-unordered="true" data-title="Buzzwords" data-moreinfo="# of times said around the office"></div>
-    </li>
-    -->
-
     <li data-row="1" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="facebook-likes" data-view="Number" data-title="FB Likes" data-moreinfo="Questionmark Facebook page likes"></div>
     </li>
@@ -42,17 +32,15 @@
     <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
       <div data-id="qm-products-barcodes" data-view="Number" data-title="Total barcodes" style="background-color: #ff9618"></div>
     </li>
-
-    <!--
-    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="facebook-talking_abount_count" data-view="Number" data-title="FB Talks" data-moreinfo="How many people are talking about Questionmark on Facebook"></div>
+    
+    <li data-row="2" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="submit_product"
+           data-view="Number"
+           data-title="Ingezonden producten"
+           style="background-color:#bb8e98;"
+           data-moreinfo="Totale ingezonden producten"></div>
+      <i class="icon-user icon-background"></i>
     </li>
-
-    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
-      <div data-id="qm-products-scored" data-view="Graph" data-title="Scored products" style="background-color:#ff9618"></div>
-    </li>
-    -->
-
+    
   </ul>
-  <center><div style="font-size: 12px">Try this: curl -d '{ "auth_token": "YOUR_AUTH_TOKEN", "text": "Hey, Look what I can do!" }' \http://<%=request.host%>:<%=request.port%>/widgets/welcome</div></center>
-</div>
+  <center>

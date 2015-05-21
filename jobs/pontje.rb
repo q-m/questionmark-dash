@@ -18,7 +18,7 @@ SCHEDULER.every '1s' do
 
   diff = next_pontje - Time.now
   if diff <= 0
-    next_pontje ||= get_next_pontje(source, destination)
+    next_pontje = get_next_pontje(source, destination)
     diff = next_pontje - Time.now
   end
 

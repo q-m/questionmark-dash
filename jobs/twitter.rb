@@ -2,7 +2,7 @@ require 'open-uri'
 
 handle = 'questionmark_nl'
 
-SCHEDULER.every '1h', :first_in => 0 do |job|
+SCHEDULER.every '24h', :first_in => 0 do |job|
   open 'https://twitter.com/'+handle, 'Accept-Language' => 'en' do |f|
     result = f.read
 

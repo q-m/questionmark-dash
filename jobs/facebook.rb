@@ -4,7 +4,7 @@ require 'json'
 pages = ['questionmarkfoundation']
 urls  = ['http://www.thequestionmark.org/']
 
-SCHEDULER.every '1m', :first_in => 0 do |job|
+SCHEDULER.every '24h', :first_in => 0 do |job|
   open 'https://graph.facebook.com/?ids=' + (pages+urls).join(',') do |f|
     result = JSON.parse(f.read)
 

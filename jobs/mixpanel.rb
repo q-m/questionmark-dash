@@ -24,7 +24,7 @@ require ::File.join(root, "..", 'lib', 'mixpanel_event_number')
 #  mixpanel_exports
 #end
  
-SCHEDULER.every '10s', :first_in => 0 do |job|
+SCHEDULER.every '10m', :first_in => 0 do |job|
   send_event('m-submit_product', {
     current: mixpanel_event_number(event_name: "submit_product")
   })

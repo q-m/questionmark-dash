@@ -23,7 +23,7 @@
     </li>
 
     <li data-row="2" data-col="2" data-sizex="1" data-sizey="1">
-      <div data-id="qm-products-with-score" data-view="Number" data-min="0" data-max="60000" data-title="Scored products" style="background-color: #ff9618"></div>
+      <div data-id="qm-products-with-score" data-view="Meter" data-min="0" data-max="60000" data-title="Scored products" style="background-color: #ff9618" data-moreinfo="Target 60.000 producten"></div>
     </li>
 
     <li data-row="2" data-col="3" data-sizex="1" data-sizey="1">
@@ -35,7 +35,7 @@
     </li>
     
     <li data-row="3" data-col="1" data-sizex="1" data-sizey="1">
-      <div data-id="m-submit_product" data-view="Number" data-title="Ingezonden producten" style="background-color:#bb8e98;" data-moreinfo="Afgelopen 30 dagen"></div>
+      <div data-id="mixpanel_submit_product" data-view="Number" data-title="Ingezonden producten" style="background-color:#bb8e98;" data-moreinfo="Afgelopen 30 dagen"></div>
     </li>
     
     <li data-row="3" data-col="2" data-sizex="1" data-sizey="1"> 
@@ -43,7 +43,15 @@
     </li>
     
     <li data-row="3" data-col="3" data-sizex="1" data-sizey="1"> 
-            <div data-id="reach_this_year" data-view="Number" data-unordered="true" data-title="Totaal bereik" data-moreinfo="Op web + app in 2015"></div> 
+            <div data-id="reach_this_year" data-view="Meter" data-min="0" data-max="200000" data-title="Totaal bereik" data-moreinfo="Op web + app in 2015 | Doel is 200.000"></div> 
+    </li>
+    
+    <li data-row="3" data-col="4" data-sizex="1" data-sizey="1">
+      <div data-id="mixpanel_signup" data-view="Number" data-title="Signups" style="background-color:#bb8e98;" data-moreinfo="Afgelopen 30 dagen"></div>
+    </li>
+    
+    <li data-row="4" data-col="1" data-sizex="1" data-sizey="1">
+      <div data-id="products_viewed_web" data-view="Number" data-title="Bekeken producten" style="background-color:#bb8e98;" data-moreinfo="Op web en app | afgelopen 30 dagen"></div>
     </li>
     
   </ul>

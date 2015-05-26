@@ -9,7 +9,7 @@ SCHEDULER.every '24h', :first_in => 0 do |job|
 
   open 'https://api-c.thequestionmark.org/api/v1.1/products?per_page=1&scored=1&sort=score' do |f|
     result = JSON.parse(f.read)
-    send_event('qm-products-with-score', {current: result['total']})
+    send_event('qm-products-with-score', {value: result['total']})
   end
 
   if ENV['QM_BARCODES_URL']

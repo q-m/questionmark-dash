@@ -12,6 +12,7 @@ def get_next_pontje(source, destination)
   end
 end
 
+=begin
 next_pontje = nil
 SCHEDULER.every '1s' do
   next_pontje ||= get_next_pontje(source, destination)
@@ -26,3 +27,4 @@ SCHEDULER.every '1s' do
   difftext = diffminutes.to_s + ':' + '%02d'%(diff-diffminutes*60)
   send_event("pontje", {text: difftext})
 end
+=end

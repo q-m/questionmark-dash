@@ -7,14 +7,8 @@ require 'date'
 service_account_email = 'xxxx@developer.gserviceaccount.com' # Email of service account
 key_file = 'project-xxxx.p12' # File containing your private key
 key_secret = 'notasecret' # Password to unlock private key
-# Array of profile names and corresponding Analytics profile id
 profiles = [{name: 'Website', id: 'xxxx'},{name: 'Apps', id: 'xxxx'}]
-#  ,
-#        {name: 'site2', id: '22222222'},
-#        {name: 'site3', id: '33333333'},
-#        {name: 'site4', id: '44444444'}
-#      ]
- 
+
 # Get the Google API client
 client = Google::APIClient.new(:application_name => 'questionmark-analytics', 
   :application_version => '0.01')
@@ -29,7 +23,7 @@ client.authorization = Signet::OAuth2::Client.new(
   :signing_key => key)
  
 # Start the scheduler
-SCHEDULER.every '20s', :first_in => 0 do # modified from 1m
+SCHEDULER.every '24h', :first_in => 5 do # we have another call to GA, do first call after 5s
  
   # Request a token for our service account
   client.authorization.fetch_access_token!
@@ -61,9 +55,14 @@ SCHEDULER.every '20s', :first_in => 0 do # modified from 1m
       visits = 0
     end
     
-    visitors.push(visits) 
+    visitors.push(visits.to_i) 
 end
  
   # Update the dashboard
+<<<<<<< HEAD
   send_event('reach_this_year', {current: visitors.map(&:to_i).reduce(:+)}) # this visitors.map(&:to_i).reduce(:+)} adds all the visitors in the array to a total
 end
+=======
+  send_event('reach_this_year', {value: visitors.sum})
+end
+>>>>>>> bb3c39a... updated google analytics jobs

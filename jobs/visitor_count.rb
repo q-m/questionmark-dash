@@ -4,16 +4,10 @@ require 'google/api_client'
 require 'date'
  
 # Update these to match your own apps credentials
-service_account_email = '812494510900-94lo81hb3a1asv3ihi6j812ssvuhp508@developer.gserviceaccount.com' # Email of service account
-key_file = 'keys/API Project-ab93d389bbd3.p12' # File containing your private key
+service_account_email = 'xxxx@developer.gserviceaccount.com' # Email of service account
+key_file = 'project-xxxx.p12' # File containing your private key
 key_secret = 'notasecret' # Password to unlock private key
-# Array of profile names and corresponding Analytics profile id
-profiles = [{name: 'Website', id: '78868897'},{name: 'Apps', id: '65811751'}]
-#  ,
-#        {name: 'site2', id: '22222222'},
-#        {name: 'site3', id: '33333333'},
-#        {name: 'site4', id: '44444444'}
-#      ]
+profiles = [{name: 'Website', id: 'xxxx'},{name: 'Apps', id: 'xxxx'}]
  
 # Get the Google API client
 client = Google::APIClient.new(:application_name => 'questionmark-analytics', 
@@ -29,7 +23,7 @@ client.authorization = Signet::OAuth2::Client.new(
   :signing_key => key)
  
 # Start the scheduler
-SCHEDULER.every '30m', :first_in => 0 do # modified from 1m
+SCHEDULER.every '1h', :first_in => 0 do # modified from 1m
  
   # Request a token for our service account
   client.authorization.fetch_access_token!

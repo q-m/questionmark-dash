@@ -1,0 +1,41 @@
+#!/bin/sh
+# Install this as file `/etc/init.d/dashing` and run `update-rc.d dashing defaults`.
+
+### BEGIN INIT INFO
+# Provides:          dashing
+# Required-Start:    $local_fs $remote_fs $time
+# Required-Stop:     $local_fs $remote_fs $time
+# Default-Start:     2 3 4 5
+# Default-Stop:      0 1 6
+# Short-Description: Initscript for Dashing dashboard
+# Description:       Real-time dashboard with key statistics
+### END INIT INFO
+
+# Set this before you use this script
+export MIXPANEL_API_KEY=
+export MIXPANEL_API_SECRET=
+export QM_BARCODES_URL=
+
+DIR=/home/pi/questionmark-dash
+
+USER=pi
+GROUP=pi
+
+PATH=$PATH:/usr/local/bin
+
+case "$1" in
+  start)
+    echo "Starting Dashing"
+    cd "$DIR"; dashing start -d -u "$USER" -g "$GROUP" -e production
+    ;;
+  stop)
+    echo "Stopping Dashing"
+    cd "$DIR"; dashing stop
+    ;;
+  *)
+    echo "Usage: $0 start|stop"
+    exit 1
+    ;;
+esac
+
+exit 0

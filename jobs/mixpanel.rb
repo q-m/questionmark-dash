@@ -1,4 +1,4 @@
-require 'mixpanel_dashing'
+require_relative '../lib/mixpanel_dashing'
  
 SCHEDULER.every '30m', first_in: 0 do |job|
   send_event('mixpanel_submit_product', {

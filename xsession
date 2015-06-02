@@ -2,7 +2,9 @@
 # Install this as `~/.xinitrc`
 
 # disable screen blanking
-xset -dpms s noblank
+xset s noblank
+xset s off
+xset -dpms
 
 # run Chromium in kiosk-mode
 noclutter &

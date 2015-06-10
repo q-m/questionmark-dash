@@ -7,7 +7,7 @@ SCHEDULER.every '24h', :first_in => 0 do |job|
     send_event('qm-products-total', {current: result['total']})
   end
 
-  open 'https://api-c.thequestionmark.org/api/v1.1/products?per_page=1&scored=1&sort=score' do |f|
+  open 'https://api-c.thequestionmark.org/api/v1.1/products?per_page=1&scored=1&page=2' do |f|
     result = JSON.parse(f.read)
     send_event('qm-products-with-score', {value: result['total']})
   end

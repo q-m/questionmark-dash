@@ -2,7 +2,7 @@ require_relative '../lib/mixpanel_dashing'
 require_relative '../lib/google_analytics_dashing'
 
 if GoogleAnalyticsDashing.configured?
-  SCHEDULER.every '1h', first_in: 2 do
+  SCHEDULER.every '1h', first_in: 0 do
 
     viewed = []
     viewed.push GoogleAnalyticsDashing.execute_i(

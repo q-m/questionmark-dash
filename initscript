@@ -15,6 +15,9 @@
 export MIXPANEL_API_KEY=
 export MIXPANEL_API_SECRET=
 export QM_BARCODES_URL=
+export GA_KEY_FILE=
+export GA_ACCOUNT_EMAIL=
+export GA_PROFILE_ID_WEBSITE=
 
 DIR=/home/pi/questionmark-dash
 

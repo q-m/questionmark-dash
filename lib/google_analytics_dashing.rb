@@ -44,7 +44,14 @@ module GoogleAnalyticsDashing
       ids: "ga:#{profile_id(profile)}",
       metrics: metrics
     })
+    params['start-date'] = params['start-date'].strftime('%Y-%m-%d') if params['start-date'].respond_to?(:strftime)
+    params['end-date']   = params['end-date'].strftime('%Y-%m-%d') if params['end-date'].respond_to?(:strftime)
     client.execute(api_method: analytics.data.ga.get, parameters: params)
+  end
+
+  def self.execute_i(profile, metrics, params={})
+    r = execute(profile, metrics, params)
+    r.data.rows[0] && r.data.rows[0][0] && r.data.rows[0][0].to_i
   end
 
   def self.client

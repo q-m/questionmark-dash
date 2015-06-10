@@ -16,9 +16,9 @@ export MIXPANEL_API_KEY=XXX
 export MIXPANEL_API_SECRET=XXX
 export QM_BARCODES_URL=XXX
 export GA_KEY_FILE=~/.google-analytics.p12
-export GA_ACCOUNT_EMAIL=12346-ar3984rc@developer.gserviceaccount.com
-export GA_PROFILE_ID_FOO=12345678
-export GA_PROFILE_ID_BLUP=23456789
+export GA_ACCOUNT_EMAIL=12346-ab3456gh@developer.gserviceaccount.com
+export GA_PROFILE_ID_WEB=12345678
+export GA_PROFILE_ID_APP=23456789
 ```
 
 ## Raspberry Pi

@@ -14,7 +14,9 @@ noclutter &
 openbox &
 
 # wait up to 2 minutes for Dashing to get up
-nc -z -w 120 "${HOST}" "${PORT}" 1>/dev/null 2>&1
+while ! nc -z -w 30 "${HOST}" "${PORT}" 1>/dev/null 2>&1; do
+  sleep 1
+done
 
 # open webpage in Chromium in kiosk mode
 chromium-browser --kiosk --disable-restore-session-state "http://${HOST}:${PORT}/"

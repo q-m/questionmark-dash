@@ -9,12 +9,16 @@ Questionmark Dashboard, based on [Dashing](http://shopify.github.io/dashing).
 `dashing start`
 
 ## Configure
-The mixpanel widget uses an API key and secret. Obtain the key / secret from the Mixpanel admin within Questionmark and add it to your `.bash_profile` or `/etc/init.d/dashing` (see below).
+The mixpanel widget uses an API key and secret. Obtain the key / secret from the Mixpanel admin within Questionmark and add it to your `.bash_profile` or `/etc/init.d/dashing` (see below). Google Analytics needs a PKCS#12 file and service account email address for authentication, as well as profile ids.
 
 ```
 export MIXPANEL_API_KEY=XXX
 export MIXPANEL_API_SECRET=XXX
 export QM_BARCODES_URL=XXX
+export GA_KEY_FILE=~/.google-analytics.p12
+export GA_ACCOUNT_EMAIL=12346-ar3984rc@developer.gserviceaccount.com
+export GA_PROFILE_ID_FOO=12345678
+export GA_PROFILE_ID_BLUP=23456789
 ```
 
 ## Raspberry Pi

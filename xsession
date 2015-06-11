@@ -13,7 +13,7 @@ xset -dpms
 noclutter &
 openbox &
 
-# wait up to 2 minutes for Dashing to get up
+# wait for Dashing to get up
 while ! nc -z -w 30 "${HOST}" "${PORT}" 1>/dev/null 2>&1; do
   sleep 1
 done

@@ -21,7 +21,14 @@ export GA_PROFILE_ID_WEB=xxx
 export GA_PROFILE_ID_APP=xxx
 ```
 
-## Raspberry Pi
+## Restart dashboard after code change
+First do a 'git pull' on the repository, then restart dashing and Lightdm (the desktop manager):
+
+```sh
+sudo /etc/init.d/dashing stop && sudo /etc/init.d/dashing start && sudo /etc/init.d/lightdm restart
+```
+
+## Setting up the Raspberry Pi
 Some hints to get this running on a [Raspberry Pi](http://raspberrypi.org/):
 
 1. [Install Raspbian](https://raspberrypi.org/downloads/), configure, set password, etc.

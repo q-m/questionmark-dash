@@ -22,7 +22,7 @@ export GA_PROFILE_ID_APP=xxx
 ```
 
 ## Restart dashboard after code change
-First do a 'git pull' on the repository, then restart dashing and Lightdm (the desktop manager):
+First do `git pull` on the repository, then restart Dashing and Lightdm (the desktop manager):
 
 ```sh
 sudo /etc/init.d/dashing stop && sudo /etc/init.d/dashing start && sudo /etc/init.d/lightdm restart

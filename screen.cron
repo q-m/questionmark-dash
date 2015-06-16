@@ -1,0 +1,4 @@
+
+# Turn off the screen daily at 8pm and on every working day at 7:45am
+0  20   * * *   root    /home/pi/questionmark-dash/screen.sh off
+45 7    * * 1-5 root    /home/pi/questionmark-dash/screen.sh on

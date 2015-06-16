@@ -1,5 +1,5 @@
 # X startup script
-# Install this as `~/.xinitrc`
+# Install this as `~/.xsession`
 
 HOST=localhost
 PORT=3030

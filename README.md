@@ -53,3 +53,7 @@ See also
 * [Setting up a Raspberry Pi as a dashboard server with Dashing](https://gist.github.com/stonehippo/5896381)
 * [DIY Info-screen using a Raspberry Pi and Dashing](http://www.fusonic.net/en/blog/2013/07/31/diy-info-screen-using-raspberry-pi-dashing/)
 * [Running Shopify’s Dashing on a Raspberry Pi](http://toxaq.com/index.php/2012/12/running-shopifys-dashing-on-a-raspberry-pi/)
+
+## License
+
+Distributed under the terms of the [MIT license](LICENSE.md).

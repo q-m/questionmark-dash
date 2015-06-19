@@ -41,7 +41,7 @@ Some hints to get this running on a [Raspberry Pi](http://raspberrypi.org/):
 7. Edit `/etc/init.d/dashing` and edit the configuration variables on top.
 8. `sudo apt-get install chromium-browser unclutter x11-xserver-utils`
 9. `ln -s xsession ~/.xsession`
-10. `sudo cat screen.cron >>/etc/crontab`
+10. `cat screen.cron | sudo tee /etc/crontab`
 11. Run `sudo raspi-config` and choose _Enable boot to desktop_ &gt; _Desktop Log in as user 'pi' ..._.
 12. Reboot.
 

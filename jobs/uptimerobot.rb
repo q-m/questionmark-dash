@@ -1,7 +1,7 @@
 require 'uptimerobot'
 
 # set the uptimerobot api key to fetch data
-apikey = ENV['UPTIMEROBOT_APIKEY']
+apikey = ENV['UPTIMEROBOT_API_KEY']
 
 # number of days for uptime ratio, defaults to 30 days
 period = ENV['UPTIMEROBOT_PERIOD'] || 30

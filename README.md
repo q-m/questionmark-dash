@@ -20,6 +20,7 @@ export GA_ACCOUNT_EMAIL=xxx@developer.gserviceaccount.com
 export GA_PROFILE_ID_WEB=xxx
 export GA_PROFILE_ID_APP=xxx
 export MAILCHIMP_API_KEY=xxx
+export UPTIMEROBOT_API_KEY=xxx
 ```
 
 ## Restart dashboard after code change

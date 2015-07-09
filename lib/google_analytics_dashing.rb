@@ -27,7 +27,7 @@ module GoogleAnalyticsDashing
     }
   end
 
-  def self.configured?
+  def self.configured?(config = self.config)
     config[:key_file] && config[:key_file].strip != ''
   end
 

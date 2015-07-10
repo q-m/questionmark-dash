@@ -10,6 +10,10 @@ module MixpanelDashing
     }
   end
 
+  def self.configured?(config = self.config)
+    config[:api_key] && config[:api_secret]
+  end
+
   def self.client(config = self.config)
     @client ||= Mixpanel::Client.new(config)
   end

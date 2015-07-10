@@ -19,6 +19,7 @@ export GA_KEY_FILE=
 export GA_ACCOUNT_EMAIL=
 export GA_PROFILE_ID_WEB=
 export GA_PROFILE_ID_APP=
+export UPTIMEROBOT_API_KEY=
 
 DIR=/home/pi/questionmark-dash
 

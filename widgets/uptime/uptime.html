@@ -1,0 +1,12 @@
+<h1 class="title" data-bind="title">Uptime</h1>
+
+<ul>
+  <li data-foreach-monitor="monitors" data-bind-class="monitor.status" data-addclass-monitor="1">
+    <div class="uptime" data-showif="monitor.uptime">
+      <span data-bind="monitor.uptime"></span>%
+    </div>
+    <div class="name" data-bind="monitor.name"></div>
+  </li>
+</ul>
+
+<p class="updated-at" data-bind="updatedAtMessage"></p>

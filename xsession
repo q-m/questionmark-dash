@@ -19,5 +19,5 @@ while ! nc -z -w 30 "${HOST}" "${PORT}" 1>/dev/null 2>&1; do
 done
 
 # open webpage in Chromium in kiosk mode
-chromium-browser --kiosk --disable-restore-session-state "http://${HOST}:${PORT}/"
+chromium-browser --incognito --kiosk --disable-restore-session-state "http://${HOST}:${PORT}/"
 

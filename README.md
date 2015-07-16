@@ -1,4 +1,7 @@
-Questionmark Dashboard, based on [Dashing](http://shopify.github.io/dashing).
+# Questionmark Dashboard
+based on [Dashing](http://shopify.github.io/dashing).
+
+[![Dependency Status](https://gemnasium.com/q-m/questionmark-dash.svg)](https://gemnasium.com/q-m/questionmark-dash)
 
 ## Install
 

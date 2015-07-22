@@ -1,3 +1,7 @@
+=begin
+
+# pontveer API is currently (22 jul 2015) down
+
 # encoding: utf-8
 require 'open-uri'
 require 'json'
@@ -44,3 +48,5 @@ SCHEDULER.every '1s' do
     last_failure = Time.now
   end
 end
+
+=end

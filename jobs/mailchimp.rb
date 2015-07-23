@@ -8,7 +8,8 @@ if apikey
     gibbon.api_key = apikey
     newsletter = gibbon.lists.list({:id => "48437"})
     send_event('mailchimp', {
-      current: newsletter['data'][19]['stats']['member_count']
+      # the following is a hack, we get the 20th list, just should get the list by id...
+      current: newsletter['data'][21]['stats']['member_count']
     })
   end
 end

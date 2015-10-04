@@ -4,12 +4,10 @@ apikey = ENV['MAILCHIMP_API_KEY']
 
 if apikey
   SCHEDULER.every '5m', first_in: 0 do |job|
-    gibbon = Gibbon::API.new
-    gibbon.api_key = apikey
-    newsletter = gibbon.lists.list({:id => "48437"})
+    gibbon = Gibbon::Request.new(api_key: apikey)
+    newsletter = gibbon.lists('82ab0c48d1').retrieve
     send_event('mailchimp', {
-      # the following is a hack, we get the 21st list, just should get the list by id...
-      current: newsletter['data'][21]['stats']['member_count']
+      current: newsletter['stats']['member_count']
     })
   end
 end

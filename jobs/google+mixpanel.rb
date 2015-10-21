@@ -18,24 +18,45 @@ if GoogleAnalyticsDashing.configured?
     totalProductsViewedApp = MixpanelDashing.event_number(event_name: "view_product")
     send_event('products_viewed', {current: totalProductsViewedWeb + totalProductsViewedApp})
 
-    visited = []
-    reach = []
+    uniqueVisitorsMonthly = []
+    uniqueVisitorsYearly = []
+    sessionsMonthly = []
+    pageViewsMonthly = []
+
     ['web', 'app'].each do |profile|
-      visited.push GoogleAnalyticsDashing.execute_i(
+      uniqueVisitorsMonthly.push GoogleAnalyticsDashing.execute_i(
         profile,
-        'ga:visitors',
+        'ga:users',
         'start-date' => Date.today - 30,
         'end-date' => Date.today
       )
-      reach.push GoogleAnalyticsDashing.execute_i(
+      uniqueVisitorsYearly.push GoogleAnalyticsDashing.execute_i(
         profile,
-        'ga:visitors',
+        'ga:users',
         'start-date' => Date.today.strftime('%Y-01-01'),
         'end-date' => Date.today
       )
+      sessionsMonthly.push GoogleAnalyticsDashing.execute_i(
+        profile,
+        'ga:sessions',
+        'start-date' => Date.today - 30,
+        'end-date' => Date.today
+      )
+      pageViewsMonthly.push GoogleAnalyticsDashing.execute_i(
+        profile,
+        'ga:pageviews',
+        'start-date' => Date.today - 30,
+        'end-date' => Date.today
+      )
     end
-    send_event('visitor_count', {current: visited.compact.reduce(&:+)})
-    send_event('reach_this_year', {value: reach.compact.reduce(&:+)})
+
+    # calculate sessions per user for the last month on web and app, by dividing sessions monthly by uv monthly
+    sessionsPerUserPerMonth = (sessionsMonthly.compact.reduce(&:+).to_f/uniqueVisitorsMonthly.compact.reduce(&:+).to_f).round(2)
+
+    send_event('sessions_count', {current: sessionsPerUserPerMonth})
+
+    send_event('visitor_count', {current: uniqueVisitorsMonthly.compact.reduce(&:+)})
+    send_event('reach_this_year', {value: uniqueVisitorsYearly.compact.reduce(&:+)})
   end
 
 end

@@ -5,14 +5,13 @@
   <meta name="description" content="">
   <meta name="viewport" content="width=device-width">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <link rel="stylesheet" href="//cloud.typography.com/6009672/758866/css/fonts.css" />
 
   <title><%= yield_content(:title) %></title>
 
   <!-- The javascript and css are managed by sprockets. The files can be found in the /assets folder-->
   <script type="text/javascript" src="/assets/application.js"></script>
   <link rel="stylesheet" href="/assets/application.css">
-
-  <link href='//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700' rel='stylesheet' type='text/css'>
   <link rel="icon" href="/assets/favicon.ico">
 
 </head>
@@ -20,7 +19,7 @@
     <div id="container">
       <%= yield %>
     </div>
-  
+
     <% if development? %>
       <div id="saving-instructions">
         <p>Paste the following at the top of <i><%= params[:dashboard] %>.erb</i></p>

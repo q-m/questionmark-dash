@@ -18,6 +18,10 @@
     padding: 1.1ex 0 0.7ex 0.3em;
   }
 
+  .updated-at {
+    color: rgba(255, 255, 255, 0.3);
+  }
+
   .S0 { // paused
     background: rgba(128,128,128,0.5);
   }
@@ -25,7 +29,7 @@
     background: rgba(200,255,200,0.5);
   }
   .S2 { // up
-    background: rgba( 50,205, 50,0.5);
+    background: #97BA4C;
   }
   .S8 { // seems down
     background: rgba(200, 50, 50,0.5);

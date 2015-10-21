@@ -46,11 +46,12 @@ body {
   background-color: $background-color;
   font-size: 20px;
   color: $text-color;
-  font-family: 'Open Sans', "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Gotham A','Gotham B', sans-serif;
+  font-weight: 400;
 }
 
 b, strong {
-  font-weight: bold;
+  font-weight: 400;
 }
 
 a {
@@ -100,7 +101,7 @@ h1 {
 h2 {
   text-transform: uppercase;
   font-size: 76px;
-  font-weight: 700;
+  font-weight: 400;
   color: $text-color;
 }
 h3 {
@@ -190,6 +191,7 @@ h3 {
   bottom: 10px;
   left: 0;
   right: 0;
+  color: #fff;
 }
 
 #save-gridster {
@@ -248,4 +250,3 @@ h3 {
 .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
-

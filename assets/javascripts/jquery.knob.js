@@ -566,7 +566,7 @@ $(function () {
                         ,'margin-left' : '-' + ((this.o.width * 3 / 4 + 2) >> 0) + 'px'
                         ,'border' : 0
                         ,'background' : 'none'
-                        ,'font' : 'bold ' + ((this.o.width / s) >> 0) + 'px Arial'
+                        ,'font' : 'normal ' + ((this.o.width / s) >> 0) + 'px Arial'
                         ,'text-align' : 'center'
                         ,'color' : this.o.fgColor
                         ,'padding' : '0px'

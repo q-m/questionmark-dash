@@ -20,6 +20,8 @@ if GoogleAnalyticsDashing.configured?
 
     uniqueVisitorsMonthly = []
     uniqueVisitorsYearly = []
+    uniqueVisitorsQuarterly = []
+    sessionsQuarterly = []
     sessionsMonthly = []
     pageViewsMonthly = []
 
@@ -36,6 +38,21 @@ if GoogleAnalyticsDashing.configured?
         'start-date' => Date.today.strftime('%Y-01-01'),
         'end-date' => Date.today
       )
+
+      uniqueVisitorsQuarterly.push GoogleAnalyticsDashing.execute_i(
+        profile,
+        'ga:users',
+        'start-date' => Date.today - 90,
+        'end-date' => Date.today
+      )
+
+      sessionsQuarterly.push GoogleAnalyticsDashing.execute_i(
+        profile,
+        'ga:sessions',
+        'start-date' => Date.today - 90,
+        'end-date' => Date.today
+      )
+
       sessionsMonthly.push GoogleAnalyticsDashing.execute_i(
         profile,
         'ga:sessions',
@@ -50,13 +67,32 @@ if GoogleAnalyticsDashing.configured?
       )
     end
 
-    # calculate sessions per user for the last month on web and app, by dividing sessions monthly by uv monthly
-    sessionsPerUserPerMonth = (sessionsMonthly.compact.reduce(&:+).to_f/uniqueVisitorsMonthly.compact.reduce(&:+).to_f).round(2)
+    # unique visitors for the last 30 days on all properties
+    send_event('visitor_count', {current: uniqueVisitorsMonthly.compact.reduce(&:+)})
 
+    # unique visitors for the last year on all properties
+    send_event('reach_this_year', {value: uniqueVisitorsYearly.compact.reduce(&:+)})
+
+    # sessions per user for the last month on all properties, by dividing sessions monthly by uv monthly
+    sessionsPerUserPerMonth = (sessionsMonthly.compact.reduce(&:+).to_f/uniqueVisitorsMonthly.compact.reduce(&:+).to_f).round(2)
     send_event('sessions_count', {current: sessionsPerUserPerMonth})
 
-    send_event('visitor_count', {current: uniqueVisitorsMonthly.compact.reduce(&:+)})
-    send_event('reach_this_year', {value: uniqueVisitorsYearly.compact.reduce(&:+)})
+    # sessions per user for the last month on web
+    sessionsPerUserPerMonthWeb = (sessionsMonthly[0].to_f/uniqueVisitorsMonthly[0].to_f).round(2)
+    send_event('sessions_count_web', {current: sessionsPerUserPerMonthWeb})
+
+    # sessions per user for the last month on app
+    sessionsPerUserPerMonthApp = (sessionsMonthly[1].to_f/uniqueVisitorsMonthly[1].to_f).round(2)
+    send_event('sessions_count_app', {current: sessionsPerUserPerMonthApp})
+
+    # sessions per user for 2015 on web
+    sessionsPerUserThisYearWeb = (sessionsQuarterly[0].to_f/uniqueVisitorsQuarterly[0].to_f).round(2)
+    send_event('sessions_count_web_quarterly', {current: sessionsPerUserThisYearWeb})
+
+    # sessions per user for 2015 on app
+    sessionsPerUserThisYearApp = (sessionsQuarterly[1].to_f/uniqueVisitorsQuarterly[1].to_f).round(2)
+    send_event('sessions_count_app_quarterly', {current: sessionsPerUserThisYearApp})
+
   end
 
 end

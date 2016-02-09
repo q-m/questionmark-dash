@@ -1,22 +1,17 @@
-=begin
-
-# pontveer API is currently (22 jul 2015) down
-
 # encoding: utf-8
 require 'open-uri'
 require 'json'
 require 'time'
 
-source      = 'Distelweg'
-destination = 'Tasmanstraat'
+line = 'GVB_900_1' # Distelweg -> Tasmanstraat
 
 class NoPontjeException < Exception; end
 
-def get_next_pontje(source, destination)
-  open "http://pontveer.nl/api/?l=#{source}&d=#{destination}&app_version=1.1.1&platform=webapp" do |f|
+def get_next_pontje(line)
+  open "http://v0.ovapi.nl/line/#{line}", "User-Agent" => "QuestionmarkDashBot (Ruby/#{RUBY_VERSION})" do |f|
     result = JSON.parse(f.read)
-    if result && result['departures']
-      return Time.parse(result['departures']['1']['time'])
+    if result && result[line] && a = result[line]['Actuals']
+      return a.values.map{|v| Time.parse(v['ExpectedDepartureTime'])}.min
     else
       raise NoPontjeException
     end
@@ -31,11 +26,11 @@ SCHEDULER.every '1s' do
   last_failure = nil
 
   begin
-    next_pontje ||= get_next_pontje(source, destination)
+    next_pontje ||= get_next_pontje(line)
 
     diff = next_pontje - Time.now
     if diff <= 0
-      next_pontje = get_next_pontje(source, destination)
+      next_pontje = get_next_pontje(line)
       diff = next_pontje - Time.now
     end
 
@@ -48,5 +43,3 @@ SCHEDULER.every '1s' do
     last_failure = Time.now
   end
 end
-
-=end

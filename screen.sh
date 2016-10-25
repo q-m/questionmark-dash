@@ -14,15 +14,15 @@ if [ `id -u` != 0 ]; then
 	exit 1
 fi
 
-case "$1" in 
+case "$1" in
     off)
         tvservice -o
         ;;
     on)
         tvservice -p
-        VC=`fgconsole`
-        chvt 1
-        chvt $VC
+        VC=`sudo fgconsole`
+        sudo chvt 1
+        sudo chvt $VC
         ;;
     *)
         echo "Usage: $0 on|off" 1>&2
